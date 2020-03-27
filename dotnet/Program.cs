@@ -11,7 +11,7 @@ namespace request_signer
         static void Main(string[] args)
         {
             // Settings
-            const string privateKeyPath = "example.private.key.pem";
+            const string privateKeyPath = "../example.private.key.pem";
             var body = new
             {
                 pin = "8888888888888888",
@@ -37,7 +37,7 @@ namespace request_signer
                 .Replace("\n", "");
             var rsa = RSA.Create();
             rsa.ImportRSAPrivateKey(Convert.FromBase64String(content), out int bytesRead);
-            System.Console.WriteLine("Bytes read: " + bytesRead);
+
             var signedData = rsa.SignData(
                 Encoding.UTF8.GetBytes(requestBody),
                 HashAlgorithmName.SHA256,

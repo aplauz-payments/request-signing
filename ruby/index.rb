@@ -3,7 +3,7 @@ require 'json'
 require 'openssl'
 
 # Settings
-private_key_path = "example.private.key.pem";
+private_key_path = "../example.private.key.pem";
 body = {
     :pin => "8888888888888888",
     :currencyCode => "EUR",

@@ -4,7 +4,7 @@ const { promisify } = require("util");
 const readFile = promisify(fs.readFile);
 
 // Settings
-const privateKeyPath = "./example.private.key.pem";
+const privateKeyPath = "../example.private.key.pem";
 const body = {
   pin: "8888888888888888",
   currencyCode: "EUR",
