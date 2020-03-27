@@ -27,7 +27,7 @@ body = OrderedDict([
 private_key = RSA.importKey(open(private_key_path).read())
 
 request_body = json.dumps(body, separators=(',', ':'))
-hasher = SHA256.new(request_body)
+hasher = SHA256.new(request_body.encode('utf-8'))
 signer = PKCS1_v1_5.new(private_key)
 signature = signer.sign(hasher)
 
@@ -36,8 +36,8 @@ print("Python example")
 print("--------------")
 print("With the request body being:")
 print(request_body)
-print
+print("\n")
 print("And signing with the private key in " + private_key_path)
-print
+print("\n")
 print("Set the Shared-Key header to:")
-print(base64.b64encode(signature))
+print(base64.b64encode(signature).decode())
