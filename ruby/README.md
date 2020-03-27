@@ -10,10 +10,10 @@ Please store your private key securely using a service like AWS SecretsManager a
 
 ## Running
 
-This is a php console application which can be run with
+This is a ruby console application which can be run with
 
 ```
-$ ruby index.rb
+$ ruby main.rb
 ```
 
 There are no dependencies that need to be installed.
