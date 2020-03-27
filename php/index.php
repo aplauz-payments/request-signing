@@ -1,6 +1,7 @@
 #!/usr/local/bin/php
 <?php
 
+// Settings
 $private_key_path = "example.private.key.pem";
 $body = [
     "pin" => "8888888888888888",
@@ -12,6 +13,8 @@ $body = [
     "integratorReference" => "456"
 ];
 
+// In a production deployment this needs to be stored securely and retrieved
+// as needed, for example from AWS SecretsManager
 $private_key = file_get_contents($private_key_path);
 
 $request_body = json_encode($body);

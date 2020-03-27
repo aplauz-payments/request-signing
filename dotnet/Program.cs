@@ -10,6 +10,7 @@ namespace request_signer
     {
         static void Main(string[] args)
         {
+            // Settings
             const string privateKeyPath = "example.private.key.pem";
             var body = new
             {
@@ -24,8 +25,11 @@ namespace request_signer
 
             string requestBody = JsonSerializer.Serialize(body);
 
-            // .NET doesn't have a built in understanding of .PEM files,
-            // but we can parse it ourselves without too much trouble.
+            // In a production deployment this needs to be stored securely and retrieved
+            // as needed, for example from AWS SecretsManager
+            //
+            // .NET doesn't have a built in understanding of .PEM files, but we can parse it
+            // ourselves without too much trouble.
             var content = File
                 .ReadAllText(privateKeyPath)
                 .Replace("-----BEGIN RSA PRIVATE KEY-----", "")
