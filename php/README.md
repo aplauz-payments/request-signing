@@ -1,6 +1,6 @@
 # PHP Example
 
-This example uses only the built in openssl_sign function to sign requests.
+This example uses only the built in `openssl_sign` function to sign requests.
 
 ## Production Use
 
