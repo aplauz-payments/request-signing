@@ -1,0 +1,541 @@
+{
+	"info": {
+		"_postman_id": "a5b57001-3d95-4f5d-a1f6-649c3461200f",
+		"name": "Retailer API",
+		"description": "Integration API for retailers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "/payments",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Shared-Key",
+								"value": "{{apiKey}}",
+								"description": "The API key.",
+								"type": "text"
+							},
+							{
+								"key": "Request-Signature",
+								"value": "{{requestSignature}}",
+								"description": "The Base64-encoded signature of the request body.",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\",\n    \"deviceReference\": \"539e5805-b2eb-4ac5-9e5e-45ec0524172e\",\n    \"integratorReference\": \"456\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								""
+							]
+						},
+						"description": "Creates a new payment."
+					},
+					"response": [
+						{
+							"name": "Unauthorised",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Payment Created.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"voucherId\": \"d0001b89-fe2e-4353-b31e-5b08fd323e4d\",\n \"currencyCode\": \"EUR\",\n \"amount\": 8,\n \"channelId\": \"ecommerce\",\n \"transactionReference\": \"ABC\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Request failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Rate limit exceeded",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/payments/:id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Shared-Key",
+								"value": "{{apiKey}}",
+								"description": "The API key.",
+								"type": "text"
+							},
+							{
+								"key": "Request-Signature",
+								"value": "{{requestSignature}}",
+								"description": "The Base64-encoded signature of the request body.",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67ecc326-82b9-46a2-91c9-59a32f86d691",
+									"type": "string",
+									"description": "(Required) The id of the payment"
+								}
+							]
+						},
+						"description": "Retrieves a payment"
+					},
+					"response": [
+						{
+							"name": "Unauthorised",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Payment retreived",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"voucherId\": \"d0001b89-fe2e-4353-b31e-5b08fd323e4d\",\n \"currencyCode\": \"EUR\",\n \"amount\": 8,\n \"channelId\": \"ecommerce\",\n \"transactionReference\": \"ABC\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Rate limit exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{sharedKey}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Shared-Key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f434203b-cd5f-4cb2-a157-3a5e2a0d5a02",
+				"type": "text/javascript",
+				"exec": [
+					"if (!pm.variables.has('privateKey')) return pm.expect.fail('No privateKey variable set, please set in environment or globals to add an RSA private key.');",
+					"if (!pm.variables.has('apiKey')) return pm.expect.fail('No apiKey variable set, please set in environment or globals to add the shared key.');",
+					"",
+					"// Cache our library so once you've downloaded it once you're good to go for",
+					"// future requests",
+					"const libraryCacheKey = 'jsrsasign-v8.0.12';",
+					"function downloadLib(callback) {",
+					"    if (pm.globals.has(libraryCacheKey)) return callback();",
+					"    pm.sendRequest(",
+					"    \t'https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js',",
+					"    \t(error, response) => {",
+					"    \t\tif (error || response.code !== 200) {",
+					"    \t\t\tpm.expect.fail('Could not load jsrsasign library');",
+					"    \t\t}",
+					"            pm.globals.set(libraryCacheKey, response.text());",
+					"    \t    return callback();",
+					"    \t}",
+					"    );",
+					"}",
+					"",
+					"function generateSignature() {",
+					"    // Pretend to be a browser so libraries don't get confused when loading.",
+					"    const navigator = {};",
+					"    const window = {};",
+					"    eval(pm.globals.get(libraryCacheKey));",
+					"    ",
+					"\tconst signature = new KJUR.crypto.Signature({ alg: 'SHA256withRSA' });",
+					"\tsignature.init(pm.variables.get('privateKey'));",
+					"    const hexSigned = signature.signString(pm.request.body ? pm.request.body.raw : '');",
+					"\tconst base64signed = Buffer.from(hexSigned, 'hex').toString('base64');",
+					"    pm.globals.set('requestSignature', base64signed);",
+					"}",
+					"",
+					"downloadLib(generateSignature);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "72050b49-297d-49c9-98cc-35df4d9a4233",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4e4ca1db-6d54-4786-9f38-71bfa771e409",
+			"key": "baseUrl",
+			"value": "{{host}}/retailer/v1",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
