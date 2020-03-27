@@ -11,6 +11,7 @@ private_key_path = "../example.private.key.pem"
 # Note: The only reason we're using an OrderedDict here is so we can
 #       directly match the signature from the other examples. Feel
 #       free to get a JSON string of your body with the keys in any order.
+#       Just make sure the string you send to the server is the string you sign.
 body = OrderedDict([
   ("pin", "8888888888888888"),
   ("currencyCode", "EUR"),
