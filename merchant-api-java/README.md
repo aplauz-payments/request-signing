@@ -1,6 +1,6 @@
 # Java Example
 
-This example presents usage of retailer-api using Java programming language.
+This example presents usage of merchant-api using Java programming language.
 
 ## Production Use
 
