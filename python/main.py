@@ -13,13 +13,14 @@ private_key_path = "../example.private.key.pem"
 #       free to get a JSON string of your body with the keys in any order.
 #       Just make sure the string you send to the server is the string you sign.
 body = OrderedDict([
-  ("pin", "8888888888888888"),
+  ("codes", ["8888888888888888"]),
   ("currencyCode", "EUR"),
   ("amount", 8),
   ("channelId", "ecommerce"),
   ("transactionReference", "ABC"),
   ("deviceReference", "539e5805-b2eb-4ac5-9e5e-45ec0524172e"),
-  ("integratorReference", "456")
+  ("integratorReference", "456"),
+  ("consumerPaymentMethod", "card"),
 ])
 
 # In a production deployment this needs to be stored securely and retrieved

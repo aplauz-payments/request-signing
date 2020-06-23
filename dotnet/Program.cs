@@ -14,13 +14,14 @@ namespace request_signer
             const string privateKeyPath = "../example.private.key.pem";
             var body = new
             {
-                pin = "8888888888888888",
+                codes = new[] { "8888888888888888" },
                 currencyCode = "EUR",
                 amount = 8,
                 channelId = "ecommerce",
                 transactionReference = "ABC",
                 deviceReference = "539e5805-b2eb-4ac5-9e5e-45ec0524172e",
-                integratorReference = "456"
+                integratorReference = "456",
+                consumerPaymentMethod = "card"
             };
 
             string requestBody = JsonSerializer.Serialize(body);

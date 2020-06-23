@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "a5b57001-3d95-4f5d-a1f6-649c3461200f",
-		"name": "Retailer API",
-		"description": "Integration API for retailers",
+		"name": "Merchant API",
+		"description": "Integration API for merchants",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -10,7 +10,7 @@
 			"name": "payments",
 			"item": [
 				{
-					"name": "/payments",
+					"name": "Create a Voucher Payment",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -36,20 +36,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\",\n    \"deviceReference\": \"539e5805-b2eb-4ac5-9e5e-45ec0524172e\",\n    \"integratorReference\": \"456\"\n}",
+							"raw": "{\n  \"amount\": 1,\n  \"codes\": [\"2582575400227111\", \"8492081064642368\", \"9608161093822033\"],\n  \"currencyCode\": \"CHF\",\n  \"channelId\": \"xe0b8565a-0409-4ea0-9888-806bddcab2bf\",\n  \"merchantUserReference\": \"9e00d4dc-366a-43aa-931b-7bd11daca7b7\",\n  \"merchantTransactionReference\": \"279800ef09c6\",\n  \"pspTransactionReference\": \"e5785e77e\",\n  \"integratorTransactionReference\": \"7fd113c\",\n  \"deviceReference\": \"a1bb47607db244c396b04028b2aaf268\"\n}",
 							"options": {
 								"raw": {}
 							}
 						},
 						"url": {
 							"raw": "{{baseUrl}}/payments/",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"payments",
-								""
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["payments", ""]
 						},
 						"description": "Creates a new payment."
 					},
@@ -61,16 +56,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/payments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments"
-									]
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
 								}
 							},
 							"status": "Unauthorized",
@@ -92,16 +83,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/payments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments"
-									]
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
 								}
 							},
 							"status": "OK",
@@ -123,16 +110,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/payments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments"
-									]
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
 								}
 							},
 							"status": "Bad Request",
@@ -154,16 +137,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/payments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments"
-									]
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
 								}
 							},
 							"status": "Payment Required",
@@ -185,16 +164,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/payments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments"
-									]
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
 								}
 							},
 							"status": "Internal Server Error",
@@ -216,16 +191,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pin\": \"8888888888888888\",\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/payments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments"
-									]
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
 								}
 							},
 							"status": "Too Many Requests",
@@ -243,7 +214,7 @@
 					]
 				},
 				{
-					"name": "/payments/:id",
+					"name": "Get a Voucher Payment",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -269,17 +240,12 @@
 						],
 						"url": {
 							"raw": "{{baseUrl}}/payments/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"payments",
-								":id"
-							],
+							"host": ["{{baseUrl}}"],
+							"path": ["payments", ":id"],
 							"variable": [
 								{
 									"key": "id",
-									"value": "67ecc326-82b9-46a2-91c9-59a32f86d691",
+									"value": "471a5b65-a7db-4f3c-8b0c-4c9da3625fdd",
 									"type": "string",
 									"description": "(Required) The id of the payment"
 								}
@@ -295,13 +261,8 @@
 								"header": [],
 								"url": {
 									"raw": "{{baseUrl}}/payments/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments",
-										":id"
-									],
+									"host": ["{{baseUrl}}"],
+									"path": ["payments", ":id"],
 									"variable": [
 										{
 											"key": "id"
@@ -328,13 +289,8 @@
 								"header": [],
 								"url": {
 									"raw": "{{baseUrl}}/payments/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments",
-										":id"
-									],
+									"host": ["{{baseUrl}}"],
+									"path": ["payments", ":id"],
 									"variable": [
 										{
 											"key": "id"
@@ -361,13 +317,8 @@
 								"header": [],
 								"url": {
 									"raw": "{{baseUrl}}/payments/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments",
-										":id"
-									],
+									"host": ["{{baseUrl}}"],
+									"path": ["payments", ":id"],
 									"variable": [
 										{
 											"key": "id"
@@ -394,13 +345,8 @@
 								"header": [],
 								"url": {
 									"raw": "{{baseUrl}}/payments/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments",
-										":id"
-									],
+									"host": ["{{baseUrl}}"],
+									"path": ["payments", ":id"],
 									"variable": [
 										{
 											"key": "id"
@@ -427,13 +373,8 @@
 								"header": [],
 								"url": {
 									"raw": "{{baseUrl}}/payments/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments",
-										":id"
-									],
+									"host": ["{{baseUrl}}"],
+									"path": ["payments", ":id"],
 									"variable": [
 										{
 											"key": "id"
@@ -457,6 +398,85 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "healthcheck",
+			"item": [
+				{
+					"name": "Check API Status",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/healthcheck/",
+							"host": ["{{baseUrl}}"],
+							"path": ["healthcheck", ""]
+						},
+						"description": "Creates a new payment."
+					},
+					"response": [
+						{
+							"name": "Rate limit exceeded",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"codes\": [\"8888888888888888\"],\n    \"currencyCode\": \"EUR\",\n    \"amount\": 8,\n    \"channelId\": \"ecommerce\",\n    \"transactionReference\": \"ABC\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Service Unvailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": ["{{baseUrl}}"],
+									"path": ["payments"]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"SERVICE_UNAVAILABLE\",\n    \"message\": \"Service Unavailable\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -464,7 +484,7 @@
 		"apikey": [
 			{
 				"key": "value",
-				"value": "{{sharedKey}}",
+				"value": "{{apiKey}}",
 				"type": "string"
 			},
 			{
@@ -523,17 +543,15 @@
 			"script": {
 				"id": "72050b49-297d-49c9-98cc-35df4d9a4233",
 				"type": "text/javascript",
-				"exec": [
-					""
-				]
+				"exec": [""]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "4e4ca1db-6d54-4786-9f38-71bfa771e409",
+			"id": "c4135240-22c0-4575-bc20-127ce218c777",
 			"key": "baseUrl",
-			"value": "{{host}}/retailer/v1",
+			"value": "{{host}}/merchant/v1",
 			"type": "string"
 		}
 	],
