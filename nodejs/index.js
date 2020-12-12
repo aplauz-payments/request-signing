@@ -7,13 +7,14 @@ const readFile = promisify(fs.readFile);
 const privateKeyPath = "../example.private.key.pem";
 const body = {
   codes: ["8888888888888888"],
-  currencyCode: "EUR",
+  currencyCode: "CHF",
   amount: 8,
-  channelId: "ecommerce",
-  transactionReference: "ABC",
+  channelId: "9b05145f-c50d-4cd6-ac03-86f9f4e9fbbf",
+  merchantUserReference: "john.doe@johndoe.com",
+  merchantTransactionReference: "100000000010",
+  integratorTransactionReference: "7fd113c",
+  pspTransactionReference: "e5785e77e",
   deviceReference: "539e5805-b2eb-4ac5-9e5e-45ec0524172e",
-  integratorReference: "456",
-  consumerPaymentMethod: "card",
 };
 
 (async () => {
@@ -35,6 +36,6 @@ const body = {
   console.log();
   console.log(`And signing with the private key in ${privateKeyPath}`);
   console.log();
-  console.log("Set the Shared-Key header to:");
+  console.log("Set the Request-Signature header to:");
   console.log(base64EncodedSignature);
 })();

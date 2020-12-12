@@ -15,13 +15,14 @@ namespace request_signer
             var body = new
             {
                 codes = new[] { "8888888888888888" },
-                currencyCode = "EUR",
+                currencyCode = "CHF",
                 amount = 8,
-                channelId = "ecommerce",
-                transactionReference = "ABC",
-                deviceReference = "539e5805-b2eb-4ac5-9e5e-45ec0524172e",
-                integratorReference = "456",
-                consumerPaymentMethod = "card"
+                channelId = "9b05145f-c50d-4cd6-ac03-86f9f4e9fbbf",
+                merchantUserReference = "john.doe@johndoe.com",
+                merchantTransactionReference = "100000000010",
+                integratorTransactionReference = "7fd113c",
+                pspTransactionReference = "e5785e77e",
+                deviceReference = "539e5805-b2eb-4ac5-9e5e-45ec0524172e"
             };
 
             string requestBody = JsonSerializer.Serialize(body);
@@ -54,7 +55,7 @@ namespace request_signer
             System.Console.WriteLine();
             System.Console.WriteLine("And signing with the private key in " + privateKeyPath);
             System.Console.WriteLine();
-            System.Console.WriteLine("Set the Shared-Key header to:");
+            System.Console.WriteLine("Set the Request-Signature header to:");
             System.Console.WriteLine(base64EncodedSignature);
         }
     }
