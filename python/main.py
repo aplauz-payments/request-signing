@@ -14,13 +14,14 @@ private_key_path = "../example.private.key.pem"
 #       Just make sure the string you send to the server is the string you sign.
 body = OrderedDict([
   ("codes", ["8888888888888888"]),
-  ("currencyCode", "EUR"),
+  ("currencyCode", "CHF"),
   ("amount", 8),
-  ("channelId", "ecommerce"),
-  ("transactionReference", "ABC"),
-  ("deviceReference", "539e5805-b2eb-4ac5-9e5e-45ec0524172e"),
-  ("integratorReference", "456"),
-  ("consumerPaymentMethod", "card"),
+  ("channelId", "9b05145f-c50d-4cd6-ac03-86f9f4e9fbbf"),
+  ("merchantUserReference", "john.doe@johndoe.com"),
+  ("merchantTransactionReference", "100000000010"),
+  ("integratorTransactionReference", "7fd113c"),
+  ("pspTransactionReference", "e5785e77e"),
+  ("deviceReference", "539e5805-b2eb-4ac5-9e5e-45ec0524172e")
 ])
 
 # In a production deployment this needs to be stored securely and retrieved
@@ -40,5 +41,5 @@ print(request_body)
 print("\n")
 print("And signing with the private key in " + private_key_path)
 print("\n")
-print("Set the Shared-Key header to:")
+print("Set the Request-Signature header to:")
 print(base64.b64encode(signature).decode())
